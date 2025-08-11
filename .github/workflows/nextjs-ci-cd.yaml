@@ -34,11 +34,11 @@ jobs:
     - name: Install dependencies
       run: npm ci --legacy-peer-deps
 
-    - name: Install TypeScript (if not found)
-      run: npm install typescript --save-dev  # Ensure TypeScript is available
+    - name: Install Jest explicitly (for CI)
+      run: npm install --save-dev jest @testing-library/react @testing-library/jest-dom
 
     - name: Run tests
-      run: npm test  # Run tests after installing dependencies
+      run: npm test
       
     - name: Build Next.js app
       run: npm run build
