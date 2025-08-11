@@ -33,6 +33,12 @@ jobs:
 
     - name: Install dependencies
       run: npm ci --legacy-peer-deps
+
+    - name: Install TypeScript (if not found)
+      run: npm install typescript --save-dev  # Ensure TypeScript is available
+
+    - name: Run tests
+      run: npm test  # Run tests after installing dependencies
       
     - name: Build Next.js app
       run: npm run build
